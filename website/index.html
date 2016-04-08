@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+<style>
+
+body {
+  font: 20px/20px "Lucida Grande", Arial, Verdana, sans-serif;
+  background-image: url('city-background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+  position: fixed;
+  top: 30%;
+  left: 23%;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 800px;
+  height: 400px;
+}
+
+div.transbox p{
+  margin: 5%;
+  <!-- font-weight: bold; -->
+  color: #000000;
+}
+
+div.transbox h1{
+  margin: 5%;
+}
+
+</style>
+</head>
+<body>
+
+<body>
+  <div ng-app="">
+  <div class="transbox">
+    <p>Input something in the input box:</p>
+    <p>Lokalizacja : <input type="text" ng-model="city" placeholder="Lokalizacja..."></p>
+	<h1>Bêdê szuka³ hotelów w {{city}}</h1>
+  </div>
+</div>
+
+</body>
+</html>
