@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl-pl">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script src="autocomplete.js"></script>
+<link rel="stylesheet" href="autocomplete.css">
 <head>
 <style>
 
@@ -9,7 +12,8 @@ body {
   background-image: url('resources/city-background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
+  background-size: 100% 100%;
 }
 
 div.transbox {
@@ -36,18 +40,76 @@ div.transbox h1{
   margin: 5%;
 }
 
+
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+#map {
+height: 50%;
+width: 100%;
+}
+.controls {
+margin-top: 10px;
+border: 1px solid transparent;
+border-radius: 2px 0 0 2px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+height: 32px;
+outline: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+background-color: #fff;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+margin-left: 12px;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 300px;
+}
+
+#pac-input:focus {
+border-color: #4d90fe;
+}
+
+.pac-container {
+font-family: Roboto;
+}
+
+#type-selector {
+color: #fff;
+background-color: #4d90fe;
+padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+font-family: Roboto;
+font-size: 13px;
+font-weight: 300;
+}
+
 </style>
 </head>
 <body>
 
 <body>
-  <div ng-app="">
-  <div class="transbox">
+   <div ng-app="myApp">
+   <div class="transbox">
     <p>Input something in the input box:</p>
-    <p>Lokalizacja : <input type="text" ng-model="city" placeholder="Lokalizacja..."></p>
 	<h1>Bêdê szuka³ hotelów w {{city}}</h1>
-  </div>
-</div>
+	<input type="text" g-places-autocomplete ng-model="city" />
 
+   </div>
+
+   </div>
+
+
+<script>
+angular.module('myApp', ['google.places']);
+</script>
 </body>
 </html>
