@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="mvnPIK" />
+        <module name="booking" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mvnPIK" target="1.5" />
+      <module name="booking" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
