@@ -27,6 +27,7 @@ public class HotelRepositoryTests {
     public void init()
     {
         repository.deleteAll();
+
         for(int i = 0; i < 100; ++i)
             repository.save(new Hotel("Hilton" + i, "Warszawa"));
     }

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl-pl">
+<html lang="pl-PL">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="autocomplete.js"></script>
 <link rel="stylesheet" href="autocomplete.css">
 <head>
+   <meta charset="utf-8">
 <style>
 
 body {
@@ -97,19 +98,15 @@ font-weight: 300;
 <body>
 
 <body>
-   <div ng-app="myApp">
-   <div class="transbox">
-    <p>Input something in the input box:</p>
-	<h1>Bêdê szuka³ hotelów w {{city}}</h1>
-	<input type="text" g-places-autocomplete ng-model="city" />
-
-   </div>
-
-   </div>
-
-
-<script>
-angular.module('myApp', ['google.places']);
-</script>
+	<div ng-app="myApp">
+	   <div class="transbox">
+	   <div ng-controller="ctrlAutoComplete">
+			<div>BÄ™dÄ™ szukaÅ‚ hotelÃ³w w {{city}}</div>
+			<input type="text" g-places-autocomplete ng-model="city"/>
+			<button ng-click="search()">Szukaj</button>
+	   </div>
+	   </div>
+	</div>
+<script src="controller.js"></script>
 </body>
 </html>

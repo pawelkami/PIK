@@ -8,7 +8,6 @@ public class Hotel {
     private String id;
 
     private String name;
-
     private String city;
 
     public String getName() {
