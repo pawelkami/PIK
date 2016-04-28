@@ -1,0 +1,9 @@
+<div ng-app="mainapp">
+    <div class="transbox">
+        <div ng-controller="cfgController">
+            <div>Będę szukał hotelów w {{city}}</div>
+            <input type="text" g-places-autocomplete ng-model="city"/>
+            <a href="#/result"><button ng-click="search()">Szukaj</button></a>
+        </div>
+    </div>
+</div>

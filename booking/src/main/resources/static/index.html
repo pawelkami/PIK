@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
-<script src="angular.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-<script src="autocomplete.js"></script>
-<link rel="stylesheet" href="autocomplete.css">
-   <meta charset="utf-8">
+<!doctype html>
+<html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <title>Booking Hotels</title>
+    <link rel="stylesheet" href="autocomplete.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+    <script src="angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="controller.js"></script>
 
-<body>
-	<div ng-app="myApp">
-	   <div class="transbox">
-	   <div ng-controller="ctrlAutoComplete">
-			<div ng-init="welcome()">Będę szukał hotelów w {{city}}</div>
-			<input type="text" g-places-autocomplete ng-model="city"/>
-			<button ng-click="search()">Szukaj</button>
-	   </div>
-	   </div>
-	</div>
-<script src="controller.js"></script>
+</head>
+<body ng-app="mainapp">
+    <div ng-controller="cfgController">
+    <div>
+        <nav class="navbar navbar-inverse" role="navigation" style="padding-top:0px;padding-left:200px">
+            <ul class="nav navbar-nav">
+                <li><a href="#/">Strona Główna</a></li>
+                <li><a href="#/search">Szukaj Hotelu</a></li>
+                <li><a href="#/promote">Promuj swój Hotel</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br/>
+
+    <div ng-view class="jumbotron"></div>
+</div>
 </body>
 </html>
