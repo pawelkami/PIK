@@ -125,3 +125,12 @@ div.incorrect p {
 .flip-container div.front.flip, .flip-container div.back {
     display: none;
 }
+
+.transparentjumbotron {
+    color: inherit;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 30px;
+}
