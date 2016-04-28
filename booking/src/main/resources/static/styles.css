@@ -1,0 +1,127 @@
+ body {
+     font: 20px/20px "Lucida Grande", Arial, Verdana, sans-serif;
+     background-image: url('resources/city-background.jpg');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
+     background-size: 100% 100%;
+ }
+
+div.transbox {
+    margin: auto;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 400px;
+}
+
+div.transbox p{
+    margin: 5%;
+    color: #000000;
+}
+
+div.transbox h1{
+    margin: 5%;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    height: 50%;
+    width: 100%;
+}
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+.pac-container {
+    font-family: Roboto;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Geek Quiz styles */
+.flip-container .back,
+.flip-container .front {
+    border: 5px solid #00bcf2;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+#content {
+    position:relative;
+    background:#fff;
+    padding:50px 0 0 0;
+}
+
+.option {
+    width:140px;
+    margin: 5px;
+}
+
+div.correct p {
+    color: green;
+}
+
+div.incorrect p {
+    color: red;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.flip-container div.front, .flip-container div.back.flip {
+    display: block;
+}
+
+.flip-container div.front.flip, .flip-container div.back {
+    display: none;
+}
