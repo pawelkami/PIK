@@ -4,6 +4,9 @@ app.config(function($routeProvider){
 
 
     $routeProvider
+        .when('/', {
+            templateUrl: 'mainpage.html'
+        })
         .when('/search',{
             templateUrl: 'search.html'
         })
