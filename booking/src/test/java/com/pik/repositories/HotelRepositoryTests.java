@@ -33,17 +33,31 @@ public class HotelRepositoryTests {
     public void init() throws IOException {
         repository.deleteAll();
 
-        byte[] img = this.extractBytes("src\\test\\java\\com\\pik\\repositories\\hotel.jpg");
+        byte[] img0 = this.extractBytes("src\\test\\java\\com\\pik\\repositories\\hotel.jpg");
+        byte[] img1 = this.extractBytes("src\\test\\java\\com\\pik\\repositories\\hotel1.jpg");
+        byte[] img2 = this.extractBytes("src\\test\\java\\com\\pik\\repositories\\hotel2.jpg");
+        byte[] img3 = this.extractBytes("src\\test\\java\\com\\pik\\repositories\\hotel3.jpg");
 
-        for(int i = 0; i < 100; ++i)
+        byte[] img;
+
+        for(int i = 0; i < 10; ++i) {
+            if(i%4 == 0)
+                img = img0;
+            else if(i%4 == 1)
+                img = img1;
+            else if(i%4 == 2)
+                img = img2;
+            else
+                img = img3;
             repository.save(new Hotel("Hilton" + i, "Warszawa", img));
+        }
     }
 
     @Test
     public void addNewHotelTest()
     {
         List<Hotel> hotels = repository.findAll();
-        Assert.assertEquals(100, hotels.size());
+        Assert.assertEquals(10, hotels.size());
         for(Hotel h : hotels)
             System.out.println(h.toString());
     }
@@ -56,23 +70,5 @@ public class HotelRepositoryTests {
         byte[] imageInByte=baos.toByteArray();
         return imageInByte;
     }
-
-    /*@Test
-    public void TestSave()
-    {
-        Hotel h = repository.findByName("Hilton0");
-        BufferedImage bi = null;
-        try {
-            bi = ImageIO.read(new ByteArrayInputStream(h.getImage()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        File outputfile = new File("src\\test\\java\\com\\pik\\repositories\\hotel2.jpg");
-        try {
-            ImageIO.write(bi, "jpg", outputfile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
 }
