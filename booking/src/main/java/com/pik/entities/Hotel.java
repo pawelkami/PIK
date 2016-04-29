@@ -9,6 +9,7 @@ public class Hotel {
 
     private String name;
     private String city;
+    private byte[] image;
 
     public String getName() {
         return name;
@@ -18,21 +19,24 @@ public class Hotel {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
     public void setCity(String city) {
         this.city = city;
     }
 
+    public byte[] getImage() { return image; }
+
+    public void setImage(byte[] image) { this.image = image; }
+
 
     public Hotel() {}
 
-    public Hotel(String name, String city)
+    public Hotel(String name, String city, byte[] image)
     {
         this.name = name;
         this.city = city;
+        this.image = image;
     }
 
     @Override
