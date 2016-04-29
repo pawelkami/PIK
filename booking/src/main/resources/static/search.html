@@ -1,9 +1,96 @@
 <div ng-app="mainapp">
     <div class="transbox">
         <div ng-controller="cfgController">
-            <div>Będę szukał hotelów w {{city}}</div>
-            <input type="text" g-places-autocomplete ng-model="city"/>
-            <a href="#/result"><button ng-click="search()">Szukaj</button></a>
+            <div style="padding-left:5px;padding-top:5px">
+
+                <br/>Cena[PLN]:
+                <select id="PriceFilter" name="PriceFilter">
+                    <option> - </option>
+                    <option> < 50 </option>
+                    <option> 50 < 100 </option>
+                    <option> 100 < 200 </option>
+                    <option> 200 < 300 </option>
+                    <option> 300 < 500 </option>
+                    <option> 500 < </option>
+                </select>
+                Pokoje:
+                <select id="RoomsFilter" name="RoomsFilter">
+                    <option> - </option>
+                    <option> 1 </option>
+                    <option> 2 </option>
+                    <option> 3 </option>
+                    <option> 4 </option>
+                    <option> 5 </option>
+                    <option> 6 </option>
+                    <option> 7 </option>
+                    <option> 8 </option>
+                    <option> 9 </option>
+                    <option> 10 </option>
+                    <option> 11 </option>
+                    <option> 12 </option>
+                    <option> 13 </option>
+                    <option> 14 </option>
+                    <option> 15 </option>
+                    <option> 16 </option>
+                    <option> 17 </option>
+                    <option> 18 </option>
+                    <option> 19 </option>
+                    <option> 20 </option>
+                </select>
+                Dorośli:
+                <select id="AdultsFilter" name="AdultsFilter">
+                    <option> - </option>
+                    <option> 1 </option>
+                    <option> 2 </option>
+                    <option> 3 </option>
+                    <option> 4 </option>
+                    <option> 5 </option>
+                    <option> 6 </option>
+                    <option> 7 </option>
+                    <option> 8 </option>
+                    <option> 9 </option>
+                    <option> 10 </option>
+                    <option> 11 </option>
+                    <option> 12 </option>
+                    <option> 13 </option>
+                    <option> 14 </option>
+                    <option> 15 </option>
+                    <option> 16 </option>
+                    <option> 17 </option>
+                    <option> 18 </option>
+                    <option> 19 </option>
+                    <option> 20 </option>
+                </select>
+                Dzieci:
+                <select id="CholdrenFilter" name="ChildrenFilter">
+                    <option> - </option>
+                    <option> 1 </option>
+                    <option> 2 </option>
+                    <option> 3 </option>
+                    <option> 4 </option>
+                    <option> 5 </option>
+                    <option> 6 </option>
+                    <option> 7 </option>
+                    <option> 8 </option>
+                    <option> 9 </option>
+                    <option> 10 </option>
+                    <option> 11 </option>
+                    <option> 12 </option>
+                    <option> 13 </option>
+                    <option> 14 </option>
+                    <option> 15 </option>
+                    <option> 16 </option>
+                    <option> 17 </option>
+                    <option> 18 </option>
+                    <option> 19 </option>
+                    <option> 20 </option>
+                </select>
+                <div style="padding-top:5px">
+                    Miejscowość:
+                    <input type="text" g-places-autocomplete ng-model="city"/>
+                    <a href="#/result"><button ng-click="search()">Szukaj</button></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
