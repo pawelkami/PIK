@@ -3,6 +3,8 @@ package com.pik.entities;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 public class HotelDetails
 {
     @Id
@@ -11,6 +13,8 @@ public class HotelDetails
     private String description;
 
     private String hotelName;
+
+    private List<byte[]> gallery;
 
     public String getHotelName() {
         return hotelName;
@@ -37,10 +41,11 @@ public class HotelDetails
     }
 
 
-    public HotelDetails(String hotelName, String description)
+    public HotelDetails(String hotelName, String description, List<byte[]> gallery)
     {
         this.hotelName = hotelName;
         this.description = description;
+        this.gallery = gallery;
     }
 
     @Override
