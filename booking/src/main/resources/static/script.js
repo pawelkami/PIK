@@ -18,6 +18,9 @@ app.config(function($routeProvider){
         })
         .when('/hoteldetails', {
             templateUrl: 'hoteldetails.html'
+        })
+        .when('/form', {
+            templateUrl: 'form.html'
         });
     
 });
@@ -70,6 +73,7 @@ app.controller('hotelDetailsController',function($scope, $http, cfgService){
     $scope.reserv = function() {
         $scope.showForm = !$scope.showForm;
     };
+
 });
 
 
