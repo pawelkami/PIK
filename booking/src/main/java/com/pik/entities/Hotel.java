@@ -1,12 +1,14 @@
 package com.pik.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class Hotel {
 
     @Id
     private String id;
 
+    @Indexed(unique = true)
     private String name;
     private String city;
     private byte[] image;

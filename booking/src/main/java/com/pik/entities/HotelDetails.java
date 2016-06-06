@@ -2,6 +2,7 @@ package com.pik.entities;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class HotelDetails
 
     private String description;
 
+    @Indexed(unique = true)
     private String hotelName;
 
     private List<byte[]> gallery;
