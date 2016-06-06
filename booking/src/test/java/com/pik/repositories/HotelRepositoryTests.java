@@ -3,6 +3,9 @@ package com.pik.repositories;
 import com.pik.SpringMongoConfiguration;
 import com.pik.entities.Hotel;
 import com.pik.entities.HotelDetails;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,16 +58,22 @@ public class HotelRepositoryTests {
                 {
                     mainPhoto = extractBytes(path);
                 }
-                else if(file.getName().toLowerCase().endsWith("info.txt"))
+                else if(file.getName().toLowerCase().endsWith("info.json"))
                 {
-                    BufferedReader br = new BufferedReader(new FileReader(path));
-                    name = br.readLine();
-                    city = br.readLine();
-                    description = br.readLine();
-                    address = br.readLine();
-                    number = br.readLine();
-                    email = br.readLine();
-                    br.close();
+                    JSONParser parser = new JSONParser();
+                    try {
+                        Object obj = parser.parse(new FileReader(path));
+                        JSONObject jsonObject = (JSONObject) obj;
+                        name = (String) jsonObject.get("name");
+                        city = (String) jsonObject.get("city");
+                        description = (String) jsonObject.get("description");
+                        address = (String) jsonObject.get("address");
+                        number = (String) jsonObject.get("number");
+                        email = (String) jsonObject.get("email");
+                    } catch (ParseException pe) {
+                        System.out.println("position: " + pe.getPosition());
+                        System.out.println(pe);
+                    }
                 }
                 else if(file.getName().toLowerCase().endsWith(".jpg"))
                 {
@@ -72,8 +81,6 @@ public class HotelRepositoryTests {
                     gallery.add(photo);
                 }
             }
-            if(name == null || city == null || mainPhoto == null)
-                continue;
             repository.save(new Hotel(name, city, mainPhoto));
             detailsRepository.save(new HotelDetails(name, description,
                     city, address, number, email, gallery));
