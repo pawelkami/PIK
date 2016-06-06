@@ -34,6 +34,7 @@ public class HotelRepositoryTests {
     @Before
     public void init() throws IOException {
         repository.deleteAll();
+        detailsRepository.deleteAll();
 
         File hotelDirectories = new File("src\\test\\java\\com\\pik\\repositories\\HDB");
         for(File directory: hotelDirectories.listFiles())
@@ -41,6 +42,10 @@ public class HotelRepositoryTests {
             String name = null;
             String city = null;
             byte[] mainPhoto = null;
+            String description = null;
+            String address = null;
+            String number = null;
+            String email = null;
             List<byte[]> gallery = new ArrayList<byte[]>();
             for(File file: directory.listFiles())
             {
@@ -55,6 +60,10 @@ public class HotelRepositoryTests {
                     BufferedReader br = new BufferedReader(new FileReader(path));
                     name = br.readLine();
                     city = br.readLine();
+                    description = br.readLine();
+                    address = br.readLine();
+                    number = br.readLine();
+                    email = br.readLine();
                     br.close();
                 }
                 else if(file.getName().toLowerCase().endsWith(".jpg"))
@@ -66,11 +75,8 @@ public class HotelRepositoryTests {
             if(name == null || city == null || mainPhoto == null)
                 continue;
             repository.save(new Hotel(name, city, mainPhoto));
-            detailsRepository.save(new HotelDetails(name, "desc"
-                    , "Warszawa"
-                    , "Pl. Politechiniki 1"
-                    , "123-123-123"
-                    , "info@piking.com", null));
+            detailsRepository.save(new HotelDetails(name, description,
+                    city, address, number, email, gallery));
         }
     }
 
