@@ -2,6 +2,7 @@ package com.pik.entities;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class HotelDetails
 {
@@ -10,6 +11,7 @@ public class HotelDetails
 
     private String description;
 
+    @Indexed(unique = true)
     private String hotelName;
 
     public String getHotelName() {
