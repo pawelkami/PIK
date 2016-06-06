@@ -1,7 +1,7 @@
 <div ng-controller="resultController">
 	<div class="container">
 		<div class="list-group">
-			<a class="list-group-item active" ng-repeat="x in data">
+			<a id="{{ x.name }}" class="list-group-item active" ng-repeat="x in data">
 				<h4 class="list-group-item-heading">{{ x.name }}</h4>
 				<p class="list-group-item-text">Miasto: {{ x.city }}</p>
 				<img src="data:image/png;base64,{{x.image}}" height="175" width="175">
