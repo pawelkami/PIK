@@ -2,6 +2,7 @@ package com.pik.repositories;
 
 import com.pik.SpringMongoConfiguration;
 import com.pik.entities.Hotel;
+import com.pik.entities.HotelDetails;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +30,9 @@ public class HotelRepositoryTests {
     @Autowired
     private HotelRepository repository;
 
+    @Autowired
+    private HotelDetailsRepository detailsRepository;
+
     @Before
     public void init() throws IOException {
         repository.deleteAll();
@@ -50,6 +54,11 @@ public class HotelRepositoryTests {
             else
                 img = img3;
             repository.save(new Hotel("Hilton" + i, "Warszawa", img));
+            detailsRepository.save(new HotelDetails("Hilton" + i, "desc"
+                    , "Warszawa"
+                    , "Pl. Politechiniki 1"
+                    , "123-123-123"
+                    , "info@piking.com"));
         }
     }
 
