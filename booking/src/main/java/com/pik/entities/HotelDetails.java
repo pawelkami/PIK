@@ -4,6 +4,8 @@ package com.pik.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
+import java.util.List;
+
 public class HotelDetails
 {
     @Id
@@ -21,6 +23,8 @@ public class HotelDetails
 
     @Indexed(unique = true)
     private String hotelName;
+
+    private List<byte[]> gallery;
 
     public String getHotelName() {
         return hotelName;
@@ -63,7 +67,8 @@ public class HotelDetails
     }
 
 
-    public HotelDetails(String hotelName, String description, String city, String adress, String number, String email)
+    public HotelDetails(String hotelName, String description, String city, String adress, String number, String email
+            , List<byte[]> gallery)
     {
         this.hotelName = hotelName;
         this.description = description;
@@ -71,6 +76,7 @@ public class HotelDetails
         this.adress = adress;
         this.number = number;
         this.email = email;
+        this.gallery = gallery;
     }
 
     @Override
