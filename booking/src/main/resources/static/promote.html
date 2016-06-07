@@ -1,3 +1,23 @@
 <div style="padding-left:130px;padding-right:200px;">
-    <p> Promote </p>
+    <div class="transbox">
+        <div ng-controller="addHotelController">
+            <div class="font" style="padding-left:5px;padding-top:5px">
+
+                <label>Nazwa hotelu:</label><br>
+                <input type="text" ng-model="hotelname"/><br>
+                <label>Miasto:</label><br>
+                <input type="text" g-places-autocomplete ng-model="city"/><br>
+                <label>Opis:</label><br>
+                <textarea ng-model="hoteldescription" rows="4" cols="50" placeholder="Opis..."/><br><br>
+               
+                <form>
+                    <input  type="file" id="photoToSend">
+                </form>
+                <br><br>
+                <button ng-click="addHotel()">Dodaj hotel</button>
+            
+            </div>
+        </div>
+    </div>
+
 </div>

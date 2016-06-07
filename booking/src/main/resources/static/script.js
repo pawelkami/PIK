@@ -69,3 +69,46 @@ app.controller('resultController',function($scope, $http, cfgService){
             $scope.status = response.status;
         });
 });
+
+app.controller('addHotelController', function($scope, $http,cfgService){
+    $scope.method = 'POST';
+    $scope.response = null;
+    $scope.base64encoded = null;
+
+    $scope.completeUrl = 'hotel/';
+
+    $scope.addHotel = function() {
+        $http({method: $scope.method,
+            url: $scope.completeUrl, 
+            headers: {'content-type': 'application/json'},
+            data: { "image": $scope.b64encoded, "name": $scope.hotelname, "city": angular.fromJson($scope.city).name }}).
+        then(function(response) {
+            $scope.status = response.status;
+            console.log($scope.status);
+        }, function(response){
+            $scope.data = response.data || "Request failed";
+            $scope.status = response.status;
+            console.log($scope.status);
+        });
+
+        // TODO poprawić obrazek wysyłanie i dodać wysyłanie do HotelDetails
+    }
+
+    var handleFileSelect = function(evt){
+        var files = evt.target.files;
+        var file = files[0];
+
+        if (files && file) {
+            var reader = new FileReader();
+
+            reader.onload = function(readerEvt) {
+                var binaryString = readerEvt.target.result;
+                $scope.base64encoded = btoa(binaryString);
+            };
+
+            reader.readAsBinaryString(file);
+        }
+    }
+    document.getElementById('photoToSend').addEventListener('change', handleFileSelect, false);
+
+});
