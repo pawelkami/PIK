@@ -110,7 +110,7 @@ app.controller('resultController',function($scope, $http, cfgService){
 app.controller('formController',function($scope){
 
     $scope.submit = function(){
-        alert('submitted!')
+        alert('Złożono rezerwację!')
     };
 
 });
