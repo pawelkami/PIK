@@ -1,7 +1,7 @@
 <script src="calendar.js"></script>
 <div class="form">
     <div ng-controller="formController">
-        <div class="font" style="padding-left:5px;padding-top:5px">
+        <div class="font" style="padding-left:5%;padding-top:5%">
             <h2>Złóż rezerwację</h2>
             <form name="signupForm" novalidate="novalidate" data-ng-submit="submit();">
                 <div class="myform-group">
@@ -52,6 +52,16 @@
                             id="dzieci"
                             type="text"
                             ng-model="dzieci"
+                            required/>
+                </div>
+                <div class="myform-group">
+                    <label for="telefon">Numer telefonu:</label>
+                    <input
+                            name="telefon"
+                            class="form-control"
+                            id="telefon"
+                            type="text"
+                            ng-model="telefon"
                             required/>
                 </div>
                 Początek pobytu:
