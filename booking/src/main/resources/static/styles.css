@@ -73,6 +73,34 @@ div.transbox h1{
     margin: 5%;
 }
 
+ div.form {
+     margin: auto;
+     background-color: rgba(56,56,56,0.7);
+     border: 8px rgba(136,136,136,0.7);
+     border-style: ridge;
+     border-radius: 15px;
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     width: 30%;
+     height: 65%;
+ }
+
+ div.form p{
+     margin: 5%;
+     color: #000000;
+ }
+
+ div.form h1{
+     margin: 5%;
+ }
+
+ div.myform-group {
+     width: 60%;
+ }
+
 
 html, body {
     height: 100%;
