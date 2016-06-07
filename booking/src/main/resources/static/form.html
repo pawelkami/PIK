@@ -1,93 +1,94 @@
 <script src="calendar.js"> </script>
-    <div class="form">
+<div class="form">
+    <div ng-controller="formController">
         <div class="font" style="padding-left:5px;padding-top:5px">
             <h2>Złóż rezerwację</h2>
-                <div class="col-md-12">
-                    <div name="signupForm" novalidate="novalidate" data-ng-submit="submit();">
-                        <div class="form-group">
-                            <label for="imie">Imie:</label>
-                            <input
-                                    name="imie"
-                                    class="form-control"
-                                    id="imie"
-                                    type="text"
-                                    ng-model="imie"
-                                    required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="nazwisko">Nazwisko:</label>
-                            <input
-                                    name="nazwisko"
-                                    class="form-control"
-                                    id="nazwisko"
-                                    type="text"
-                                    ng-model="nazwisko"
-                                    required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="pokoje">Liczba pokoi:</label>
-                            <input
-                                    name="pokoje"
-                                    class="form-control"
-                                    id="pokoje"
-                                    type="text"
-                                    ng-model="pokoje"
-                                    required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="dorosli">Liczba doroslych:</label>
-                            <input
-                                    name="dorosli"
-                                    class="form-control"
-                                    id="dorosli"
-                                    type="text"
-                                    ng-model="dorosli"
-                                    required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="dzieci">Liczba dzieci:</label>
-                            <input
-                                    name="dzieci"
-                                    class="form-control"
-                                    id="dzieci"
-                                    type="text"
-                                    ng-model="dzieci"
-                                    required/>
-                        </div>
-                        <div ng-controller="searchController">
-                            Początek pobytu:
-                            <div class="container-fluid" style="margin:0;max-width: 700px">
-                                <div class='col-md-5'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker6'>
-                                            <input type='text' class="form-control" />
+            <div class="col-md-12">
+                <form name="signupForm" novalidate="novalidate" data-ng-submit="submit();">
+                    <div class="form-group">
+                        <label for="imie">Imie:</label>
+                        <input
+                                name="imie"
+                                class="form-control"
+                                id="imie"
+                                type="text"
+                                ng-model="imie"
+                                required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="nazwisko">Nazwisko:</label>
+                        <input
+                                name="nazwisko"
+                                class="form-control"
+                                id="nazwisko"
+                                type="text"
+                                ng-model="nazwisko"
+                                required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pokoje">Liczba pokoi:</label>
+                        <input
+                                name="pokoje"
+                                class="form-control"
+                                id="pokoje"
+                                type="text"
+                                ng-model="pokoje"
+                                required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="dorosli">Liczba doroslych:</label>
+                        <input
+                                name="dorosli"
+                                class="form-control"
+                                id="dorosli"
+                                type="text"
+                                ng-model="dorosli"
+                                required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="dzieci">Liczba dzieci:</label>
+                        <input
+                                name="dzieci"
+                                class="form-control"
+                                id="dzieci"
+                                type="text"
+                                ng-model="dzieci"
+                                required/>
+                    </div>
+                    <div ng-controller="searchController">
+                        Początek pobytu:
+                        <div class="container-fluid" style="margin:0;max-width: 700px">
+                            <div class='col-md-5'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <input type='text' class="form-control" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            Koniec pobytu:
-                            <div class="container-fluid" style="margin:0;max-width: 700px">
-                                <div class='col-md-5'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker7'>
-                                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input class="btn btn-primary" type="submit" value="Submit"></input>
-                            <button class="btn btn-default" type="reset">Reset</button>
+                        Koniec pobytu:
+                        <div class="container-fluid" style="margin:0;max-width: 700px">
+                            <div class='col-md-5'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Submit"></input>
+                        <button class="btn btn-default" type="reset">Reset</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>

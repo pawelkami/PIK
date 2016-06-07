@@ -52,7 +52,6 @@ app.controller('hotelDetailsController',function($scope, $http, cfgService){
 
     $scope.method = 'GET';
     $scope.response = null;
-    $scope.showForm = false;
 
     $scope.hotelName = cfgService.getHotelName();
     console.log($scope.hotelName);
@@ -69,10 +68,6 @@ app.controller('hotelDetailsController',function($scope, $http, cfgService){
         $scope.description = "Request failed";
         //$scope.status = response.status;
     });
-
-    $scope.reserv = function() {
-        $scope.showForm = !$scope.showForm;
-    };
 
 });
 
@@ -110,4 +105,12 @@ app.controller('resultController',function($scope, $http, cfgService){
     $scope.setHotelNameAndDisplayDetails = function(id) {
         cfgService.setHotelName(id);
     }
+});
+
+app.controller('formController',function($scope){
+
+    $scope.submit = function(){
+        alert('submitted!')
+    };
+
 });
