@@ -96,7 +96,7 @@ app.controller('resultController',function($scope, $http, cfgService){
         then(function(response) {
             $scope.status = response.status;
             $scope.data = response.data._embedded.hotel;
-            console.log("User = " + JSON.stringify(response.data._embedded.hotel));
+            //console.log("User = " + JSON.stringify(response.data._embedded.hotel));
             //cfgService.setHotelList(response.data._embedded.hotel);
         }, function(response){
             $scope.data = response.data || "Request failed";
@@ -118,17 +118,43 @@ app.controller('addHotelController', function($scope, $http,cfgService){
         $http({method: $scope.method,
             url: $scope.completeUrl, 
             headers: {'content-type': 'application/json'},
-            data: { "image": $scope.b64encoded, "name": $scope.hotelname, "city": angular.fromJson($scope.city).name }}).
+            transformRequest :  [function (data, headers) {
+                return JSON.stringify(data);
+            }],
+            data: { "image": $scope.base64encoded, 
+            "name": $scope.hotelname, 
+            "city": angular.fromJson($scope.city).name }}).
         then(function(response) {
             $scope.status = response.status;
             console.log($scope.status);
+
+            // jeśli udało się wstawić to wstawiamy jeszcze hoteldetails
+            $http({method: $scope.method,
+                url: "hotelDetails/", 
+                headers: {'content-type': 'application/json'},
+                transformRequest :  [function (data, headers) {
+                    return JSON.stringify(data);
+                }],
+                data: { "gallery": [$scope.base64encoded], 
+                "hotelName": $scope.hotelname, 
+                "city": angular.fromJson($scope.city).name,
+                "description": $scope.hoteldescription, 
+                "email": $scope.email,
+                "address": $scope.address,
+                "number": $scope.telephone  }}).
+            then(function(response) {
+                $scope.status = response.status;
+                console.log($scope.status);
+            }, function(response){
+                $scope.data = response.data || "Request failed";
+                $scope.status = response.status;
+                console.log($scope.status);
+            });
         }, function(response){
             $scope.data = response.data || "Request failed";
             $scope.status = response.status;
             console.log($scope.status);
         });
-
-        // TODO poprawić obrazek wysyłanie i dodać wysyłanie do HotelDetails
     }
 
     var handleFileSelect = function(evt){

@@ -25,6 +25,15 @@ public class HotelDetails
     private String hotelName;
 
     private List<byte[]> gallery;
+    
+    public List<byte[]> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(List<byte[]> gallery) {
+        this.gallery = gallery;
+    }
+
 
     public String getHotelName() {
         return hotelName;
@@ -66,6 +75,7 @@ public class HotelDetails
         this.id = id;
     }
 
+    public HotelDetails() {}
 
     public HotelDetails(String hotelName, String description, String city, String address, String number, String email
             , List<byte[]> gallery)
