@@ -20,6 +20,98 @@
      height: 70%;
  }
 
+ div.hotelDescription {
+     font-style: oblique;
+     font-family: Palatino Linotype;
+     font-size: 30px;
+     position: relative;
+     color: #B69D65;
+     bottom: 34px;
+     align-content: center;
+     clear: both;
+     left: 9%;
+ }
+ div.hotelDescription a{
+     font-size: 16px;
+     float: left;
+     color: #B69D65;
+     clear: both;
+     left: 9%
+ }
+ div.hotelEmail {
+     font-style: oblique;
+     font-family: Palatino Linotype;
+     font-size: 24px;
+     position: relative;
+     color: #B69D65;
+     bottom: 68px;
+     float: left;
+     left: 50%;
+     clear: both;
+ }
+div.hotelNumer {
+    font-style: oblique;
+    font-family: Palatino Linotype;
+    font-size: 24px;
+    position: relative;
+    left: 9%;
+    width: 100%;
+    color: #B69D65;
+    top: -34px;
+    float: left;
+    clear: both;
+}
+ div.hotelTitle{
+     font-style: oblique;
+     font-family: Palatino Linotype;
+     font-size: 80px;
+     font-weight: 900;
+     position: relative;
+     left: 0;
+     width: 100%;
+     text-align: center;
+     color: #bca05a;
+     vertical-align: middle;
+     clear: both;
+ }
+ div.hotelCity {
+     font-style: oblique;
+     font-family: Palatino Linotype;
+     font-size: 24px;
+     position: relative;
+     left: 9%;
+     width: 100%;
+     color: #B69D65;
+     top: 16%;
+     clear: both;
+ }
+ div.hotelAddress {
+     font-style: oblique;
+     font-family: Palatino Linotype;
+     font-size: 24px;
+     position: relative;
+     color: #B69D65;
+     bottom: 34px;
+     float: left;
+     left: 50%;
+     clear: both;
+ }
+ div.hotelBox {
+     margin: auto;
+     background-color: rgba(56,56,56,0.7);
+     border: 8px rgba(136,136,136,0.7);
+     border-style: ridge;
+     border-radius: 15px;
+     position: relative;
+     top: 10%;
+     left: 0;
+     bottom: auto;
+     right: 0;
+     width: 80%;
+     overflow: hidden;
+     clear: both;
+ }
+
  div.starttext1{
      font-style:italic;
      font-variant:small-caps;

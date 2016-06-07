@@ -1,8 +1,16 @@
 <div ng-controller="hotelDetailsController">
-    <div class="transbox">
-        <br/><br/><br/>
-        <div class="starttext1"> {{ description }} </div>
-        <div style="position: relative; left: 90% ; top: 70%">
+    <div class="hotelBox">
+        <div class="hotelTitle"> {{ data.hotelName }} </div>
+        <div class="hotelCity">Miasto: {{ data.city }}</div>
+        <div class="hotelAddress">Adres: {{ data.address }}</div>
+        <div class="hotelNumer">Numer: {{ data.number }}</div>
+        <div class="hotelEmail">email: {{ data.email }}</div>
+        <div class="hotelDescription">
+            Opis:
+            <br>
+            <a>{{data.description}}</a>
+        </div>
+        <div style="position: relative; top: 70%">
             <button onclick="window.location.href='#/form'">Reservation</button>
         </div>
     </div>

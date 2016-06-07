@@ -15,7 +15,7 @@ public class HotelDetails
 
     private String city;
 
-    private String adress;
+    private String address;
 
     private String number;
 
@@ -50,9 +50,9 @@ public class HotelDetails
 
     public void setCity(String city) { this.city = city; }
 
-    public String getAdress() { return adress; }
+    public String getAddress() { return address; }
 
-    public void setAdress(String adress) { this.adress = adress; }
+    public void setAddress(String address) { this.address = address; }
 
     public String getNumber() { return number; }
 
@@ -67,13 +67,13 @@ public class HotelDetails
     }
 
 
-    public HotelDetails(String hotelName, String description, String city, String adress, String number, String email
+    public HotelDetails(String hotelName, String description, String city, String address, String number, String email
             , List<byte[]> gallery)
     {
         this.hotelName = hotelName;
         this.description = description;
         this.city = city;
-        this.adress = adress;
+        this.address = address;
         this.number = number;
         this.email = email;
         this.gallery = gallery;
