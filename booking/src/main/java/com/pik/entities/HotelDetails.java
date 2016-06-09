@@ -21,6 +21,10 @@ public class HotelDetails
 
     private String email;
 
+    private int roomsCount;
+
+    private int occupiedRoomsCount;
+
     @Indexed(unique = true)
     private String hotelName;
 
@@ -75,10 +79,18 @@ public class HotelDetails
         this.id = id;
     }
 
+    public int getRoomsCount() { return roomsCount; }
+
+    public void setRoomsCount(int roomsCount) { this.roomsCount = roomsCount; }
+
+    public int getOccupiedRoomsCount() { return occupiedRoomsCount; }
+
+    public void setOccupiedRoomsCount(int occupiedRoomsCount) { this.occupiedRoomsCount = occupiedRoomsCount; }
+
     public HotelDetails() {}
 
     public HotelDetails(String hotelName, String description, String city, String address, String number, String email
-            , List<byte[]> gallery)
+            , List<byte[]> gallery, int roomsCount, int occupiedRoomsCount)
     {
         this.hotelName = hotelName;
         this.description = description;
@@ -87,6 +99,8 @@ public class HotelDetails
         this.number = number;
         this.email = email;
         this.gallery = gallery;
+        this.roomsCount = roomsCount;
+        this.occupiedRoomsCount = occupiedRoomsCount;
     }
 
     @Override

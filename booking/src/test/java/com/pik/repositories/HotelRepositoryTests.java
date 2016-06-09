@@ -49,7 +49,10 @@ public class HotelRepositoryTests {
             String address = null;
             String number = null;
             String email = null;
+            int roomsCount = 0;
+            int occupiedRoomsCount = 0;
             List<byte[]> gallery = new ArrayList<byte[]>();
+            boolean exceptionOccured = false;
             for(File file: directory.listFiles())
             {
                 String path = hotelDirectories+"\\"+directory.getName()+"\\"+file.getName();
@@ -70,9 +73,13 @@ public class HotelRepositoryTests {
                         address = (String) jsonObject.get("address");
                         number = (String) jsonObject.get("number");
                         email = (String) jsonObject.get("email");
+                        roomsCount = ((Long) jsonObject.get("roomsCount")).intValue();
+                        occupiedRoomsCount = ((Long) jsonObject.get("occupiedRoomsCount")).intValue();
                     } catch (ParseException pe) {
                         System.out.println("position: " + pe.getPosition());
                         System.out.println(pe);
+                        exceptionOccured = true;
+                        break;
                     }
                 }
                 else if(file.getName().toLowerCase().endsWith(".jpg"))
@@ -81,9 +88,11 @@ public class HotelRepositoryTests {
                     gallery.add(photo);
                 }
             }
+            if(exceptionOccured)
+                continue;
             repository.save(new Hotel(name, city, mainPhoto));
             detailsRepository.save(new HotelDetails(name, description,
-                    city, address, number, email, gallery));
+                    city, address, number, email, gallery, roomsCount, occupiedRoomsCount));
         }
     }
 

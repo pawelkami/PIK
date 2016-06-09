@@ -112,10 +112,16 @@ app.controller('addHotelController', function($scope, $http,cfgService){
     $scope.method = 'POST';
     $scope.response = null;
     $scope.base64encoded = null;
+    $scope.phoneregex = /^(0|[1-9][0-9]*)$/;
 
     $scope.completeUrl = 'hotel/';
 
     $scope.addHotel = function() {
+        console.log($scope.telephone);
+        if($scope.telephone === undefined){
+            alert("Podano niewłaściwy numer telefon\nPrzykład poprawnego numeru: 111111111");
+            return;
+        }
         $http({method: $scope.method,
             url: $scope.completeUrl, 
             headers: {'content-type': 'application/json'},
@@ -178,9 +184,16 @@ app.controller('addHotelController', function($scope, $http,cfgService){
 
 app.controller('formController',function($scope){
 
+    $scope.regexphone = /^(0|[1-9][0-9]*)$/;
+
     $scope.submit = function(){
-        alert('Złożono rezerwację!');
-        history.go(-1);
+        if($scope.telefon !== undefined) {
+
+            alert('Złożono rezerwację!');
+            history.go(-1);
+        } else {
+            alert('Niepoprawne dane');
+        }
     };
 
 });

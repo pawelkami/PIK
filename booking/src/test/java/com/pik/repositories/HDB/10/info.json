@@ -4,5 +4,7 @@
 	"description": "Piekny hotel nad morzem",
 	"address": "ul. Krynicy 65",
 	"number": "646-345-334",
-	"email": "pieknyHotel@gmail.com"
+	"email": "pieknyHotel@gmail.com",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }

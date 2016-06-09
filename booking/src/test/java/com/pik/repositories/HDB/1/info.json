@@ -4,5 +4,7 @@
 	"description": "Hotel w ktorym kiedys mieszkal Dracula...",
 	"address": "ul. Wiazkow 666",
 	"number": "567-463-355",
-	"email": "pensylwania@gmail.com"
+	"email": "pensylwania@gmail.com",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }

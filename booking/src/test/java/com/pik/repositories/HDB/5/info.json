@@ -4,5 +4,7 @@
 	"description": "Tani ale fajny hotel.",
 	"address": "ul. Marynarki 1a",
 	"number": "656-353-345",
-	"email": "hotKret2gmail.com"
+	"email": "hotKret2gmail.com",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }
