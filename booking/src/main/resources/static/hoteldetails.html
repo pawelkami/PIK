@@ -10,7 +10,20 @@
             <br>
             <a>{{data.description}}</a>
         </div>
-        <div style="position: relative; top: 70%">
+
+
+        <div class="mythumbnails">
+            <img onmouseover="mypreview.src=this.src" src="data:image/png;base64,{{x}}"
+                 ng-repeat="x in data.gallery" alt=""/>
+        </div><br/>
+
+
+        <div class="mypreview" align="center">
+            <img name="mypreview" src="data:image/png;base64,{{ data.gallery[0] }}" alt=""/>
+        </div>
+
+        <br>
+        <div style="position: relative; top: 70%; clear: both;">
             <button onclick="window.location.href='#/form'">Reservation</button>
         </div>
     </div>

@@ -7,6 +7,39 @@
      background-size: 100% 100%;
  }
 
+
+div.mythumbnails {
+    box-sizing: border-box;
+    clear: both;
+}
+ a:hover {
+     color: yellow;
+     text-decoration: underline;
+     clear: both;
+ }
+ .mythumbnails img {
+     height: 80px;
+     border: 4px solid #555;
+     padding: 1px;
+     margin: 0 10px 10px 0;
+     clear: both;
+ }
+
+ .mythumbnails img:hover {
+     border: 4px solid #00ccff;
+     cursor:pointer;
+     clear: both;
+ }
+
+ .mypreview img {
+     border: 4px solid #444;
+     padding: 1px;
+     width: 800px;
+     clear: both;
+ }
+
+
+
  div.startbox {
      margin: auto;
      background-color: rgba(64,64,64,0.38);
@@ -29,14 +62,14 @@
      bottom: 34px;
      align-content: center;
      clear: both;
-     left: 9%;
+     left: 5%;
  }
  div.hotelDescription a{
      font-size: 16px;
      float: left;
      color: #B69D65;
      clear: both;
-     left: 9%
+     left: 5%
  }
  div.hotelEmail {
      font-style: oblique;
@@ -54,7 +87,7 @@ div.hotelNumer {
     font-family: Palatino Linotype;
     font-size: 24px;
     position: relative;
-    left: 9%;
+    left: 5%;
     width: 100%;
     color: #B69D65;
     top: -34px;
@@ -79,7 +112,7 @@ div.hotelNumer {
      font-family: Palatino Linotype;
      font-size: 24px;
      position: relative;
-     left: 9%;
+     left: 5%;
      width: 100%;
      color: #B69D65;
      top: 16%;

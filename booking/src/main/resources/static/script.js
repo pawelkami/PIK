@@ -62,13 +62,14 @@ app.controller('hotelDetailsController',function($scope, $http, cfgService){
     then(function(response) {
         $scope.status = response.status;
         $scope.data = response.data;
-        $scope.description = response.data.description;
     }, function(response){
         $scope.data = response.data || "Request failed";
-        $scope.description = "Request failed";
         //$scope.status = response.status;
     });
 
+    $scope.getPreview = function(index) {
+        $scope.mypreview.src = "img"+index+".src";
+    }
 });
 
 
