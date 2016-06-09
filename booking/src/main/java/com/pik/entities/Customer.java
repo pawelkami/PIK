@@ -8,13 +8,31 @@ public class Customer
     @Id
     private String id;
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     private String firstName;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     private String lastName;
 
     private String telephoneNumber;
 
     private String email;
+
+    public Customer() { }
 
     public Customer(String firstname, String lastname, String telephoneNumber, String email)
     {

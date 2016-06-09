@@ -117,7 +117,6 @@ app.controller('addHotelController', function($scope, $http,cfgService){
     $scope.completeUrl = 'hotel/';
 
     $scope.addHotel = function() {
-        console.log($scope.telephone);
         if($scope.telephone === undefined){
             alert("Podano niewłaściwy numer telefon\nPrzykład poprawnego numeru: 111111111");
             return;
@@ -182,13 +181,58 @@ app.controller('addHotelController', function($scope, $http,cfgService){
     document.getElementById('photoToSend').addEventListener('change', handleFileSelect, false);
 });
 
-app.controller('formController',function($scope){
+app.controller('formController',function($scope, $http, cfgService){
+    $scope.method = 'POST';
+    $scope.response = null;
+    $scope.completeUrl = 'customer/';
 
     $scope.regexphone = /^(0|[1-9][0-9]*)$/;
 
-    $scope.submit = function(){
-        if($scope.telefon !== undefined) {
+    $scope.reserve = function() {
+        if($scope.telephoneNumber !== undefined) {
 
+            $http({method: $scope.method,
+                url: $scope.completeUrl,
+                headers: {'content-type': 'application/json'},
+                transformRequest :  [function (data, headers) {
+                    return JSON.stringify(data);
+                }],
+                data: { "firstName": $scope.firstName,
+                    "lastName": $scope.lastName,
+                    "telephoneNumber": $scope.telephoneNumber,
+                    "email": $scope.email
+                }}).
+            then(function(response) {
+                $scope.status = response.status;
+                console.log($scope.status);
+
+                // jeśli udało się wstawić to wstawiamy docelowe Reservation
+                $http({method: $scope.method,
+                    url: "reservation/",
+                    headers: {'content-type': 'application/json'},
+                    transformRequest :  [function (data, headers) {
+                        return JSON.stringify(data);
+                    }],
+                    data: { "roomAmount": [$scope.roomAmount],
+                        "children": $scope.children,
+                        "adults": $scope.adults,
+                        "beginDate": $scope.beginDate,
+                        "endDate": $scope.endDate,
+                        "address": $scope.address
+                    }}).
+                then(function(response) {
+                    $scope.status = response.status;
+                    console.log($scope.status);
+                }, function(response){
+                    $scope.data = response.data || "Request failed";
+                    $scope.status = response.status;
+                    console.log($scope.status);
+                });
+            }, function(response){
+                $scope.data = response.data || "Request failed";
+                $scope.status = response.status;
+                console.log($scope.status);
+            });
             alert('Złożono rezerwację!');
             history.go(-1);
         } else {
