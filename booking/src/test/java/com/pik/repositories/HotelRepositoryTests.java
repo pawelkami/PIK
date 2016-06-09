@@ -39,7 +39,7 @@ public class HotelRepositoryTests {
         repository.deleteAll();
         detailsRepository.deleteAll();
 
-        File hotelDirectories = new File("src\\test\\java\\com\\pik\\repositories\\HDB");
+        File hotelDirectories = new File("src/test/java/com/pik/repositories/HDB");
         for(File directory: hotelDirectories.listFiles())
         {
             String name = null;
@@ -55,7 +55,7 @@ public class HotelRepositoryTests {
             boolean exceptionOccured = false;
             for(File file: directory.listFiles())
             {
-                String path = hotelDirectories+"\\"+directory.getName()+"\\"+file.getName();
+                String path = hotelDirectories+"/"+directory.getName()+"/"+file.getName();
                 System.out.println(path);
                 if(file.getName().toLowerCase().startsWith("main."))
                 {
