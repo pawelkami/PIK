@@ -4,5 +4,7 @@
 	"description": "Piekne afrykanskie dziewczyny na recepcji",
 	"address": "ul. Amazonki 5",
 	"number": "565-545-343",
-	"email": "buszUjace@wp.pl"
+	"email": "buszUjace@wp.pl",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }

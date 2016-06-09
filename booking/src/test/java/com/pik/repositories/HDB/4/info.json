@@ -4,5 +4,7 @@
 	"description": "Hotel dla ludzi ktorzy cenia sobie luksus",
 	"address": "ul. Swietojanska 45",
 	"number": "656-464-345",
-	"email": "luxus@wp.pl"
+	"email": "luxus@wp.pl",
+    "roomsCount": 10,
+    "occupiedRoomsCount": 2
 }

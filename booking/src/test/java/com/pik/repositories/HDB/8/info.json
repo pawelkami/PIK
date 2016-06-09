@@ -4,5 +4,7 @@
 	"description": "W calym hotelu nie ma krzeel i trzeba kucac :(",
 	"address": "ul. Apokalipsy 46",
 	"number": "564-564-344",
-	"email": "bogaci@gmail.com"
+	"email": "bogaci@gmail.com",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }

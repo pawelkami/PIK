@@ -13,6 +13,8 @@ public class ApplicationRepositoryUtil {
     private MongoTemplate mongoTemplate;
     @Autowired
     private HotelRepository hotelRepository;
+    @Autowired
+    private HotelDetailsRepository hotelDetailsRepository;
 
     /**
      * @return the mongoTemplate
@@ -27,4 +29,9 @@ public class ApplicationRepositoryUtil {
     public HotelRepository getHotelRepository() {
         return hotelRepository;
     }
+
+    /**
+     * @return the hotelDetailsRepository
+     */
+    public HotelDetailsRepository getHotelDetailsRepository() { return hotelDetailsRepository; }
 }

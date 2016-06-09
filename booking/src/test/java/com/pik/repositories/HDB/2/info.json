@@ -4,5 +4,7 @@
 	"description": "Hotel swietne dla programistow pythona",
 	"address": "ul. Lucyny 7",
 	"number": "657-464-354",
-	"email": "pytonki@gmail.com"
+	"email": "pytonki@gmail.com",
+	"roomsCount": 10,
+	"occupiedRoomsCount": 2
 }
