@@ -3,25 +3,29 @@
         <div ng-controller="addHotelController">
             <div class="font" style="padding-left:5px;padding-top:5px">
 
+                <form ng-submit="addHotel()">
+
                 <label>Nazwa hotelu:</label><br>
-                <input type="text" ng-model="hotelname"/><br>
+                <input type="text" ng-model="hotelname" required/><br>
                 <label>Miasto:</label><br>
-                <input type="text" g-places-autocomplete ng-model="city"/><br>
+                <input type="text" g-places-autocomplete ng-model="city" required/><br>
                 <label>Adres:</label><br>
-                <input type="text" ng-model="address"/><br>
+                <input type="text" ng-model="address" required/><br>
                 <label>Telefon:</label><br>
-                <input type="text" ng-model="telephone"/><br>
+                <input type="text" ng-model="telephone" ng-pattern="phoneregex" required/><br>
                 <label>Email:</label><br>
-                <input type="email" ng-model="email"/><br>
+                <input type="email" ng-model="email" required/><br>
 
                 <label>Opis:</label><br>
-                <textarea ng-model="hoteldescription" rows="4" cols="50" placeholder="Opis..."/><br><br>
-                
-                <form>
-                    <input  type="file" id="photoToSend">
+                <textarea ng-model="hoteldescription" rows="4" cols="50" placeholder="Opis..." required/><br><br>
+
+
+                    <input  type="file" id="photoToSend" required>
+
+                <input type="submit" value="Dodaj hotel">
+
                 </form>
-                <button ng-click="addHotel()">Dodaj hotel</button>
-            
+
             </div>
         </div>
     </div>
