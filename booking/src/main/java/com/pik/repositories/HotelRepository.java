@@ -3,7 +3,6 @@ package com.pik.repositories;
 import java.util.List;
 
 import com.pik.entities.Hotel;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -35,4 +34,5 @@ public interface HotelRepository extends MongoRepository<Hotel, String> {
      * Wyszukiwanie hotelu o okreslonej liczbie wolnych miejsc.
      */
 
+    public Hotel findById(@Param(value = "id") String id);
 }

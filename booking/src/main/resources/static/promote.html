@@ -1,5 +1,5 @@
 <div style="padding-left:130px;padding-right:200px;">
-    <div class="transbox">
+    <div class="hotelBox">
         <div ng-controller="addHotelController">
             <div class="font" style="padding-left:5px;padding-top:5px">
 
@@ -15,12 +15,22 @@
                 <input type="text" ng-model="telephone" ng-pattern="phoneregex" required/><br>
                 <label>Email:</label><br>
                 <input type="email" ng-model="email" required/><br>
+                <label for="roomAmount">Liczba pokoi:</label>
+                <input
+                        style="width: 75px;"
+                        name="roomAmount"
+                        class="form-control"
+                        id="roomAmount"
+                        type="number"
+                        ng-model="roomAmount"
+                        min="1"
+                        required/>
 
                 <label>Opis:</label><br>
                 <textarea ng-model="hoteldescription" rows="4" cols="50" placeholder="Opis..." required/><br><br>
 
 
-                    <input  type="file" id="photoToSend" required>
+                    <input  type="file" id="photoToSend" multiple>
 
                 <input type="submit" value="Dodaj hotel">
 

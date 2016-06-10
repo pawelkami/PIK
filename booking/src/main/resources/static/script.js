@@ -32,7 +32,7 @@ app.service('cfgService',function(){
         return this.dbginfo;
     }
 
-    this.city = 'Warsaw';
+    //this.city = 'Warsaw';
     this.getCity = function() {
         return this.city;
     }
@@ -111,7 +111,7 @@ app.controller('resultController',function($scope, $http, cfgService){
 app.controller('addHotelController', function($scope, $http,cfgService){
     $scope.method = 'POST';
     $scope.response = null;
-    $scope.base64encoded = null;
+    $scope.base64encoded = [];
     $scope.phoneregex = /^(0|[1-9][0-9]*)$/;
 
     $scope.completeUrl = 'hotel/';
@@ -127,36 +127,43 @@ app.controller('addHotelController', function($scope, $http,cfgService){
             transformRequest :  [function (data, headers) {
                 return JSON.stringify(data);
             }],
-            data: { "image": $scope.base64encoded, 
+            data: { "image": $scope.base64encoded[0],
             "name": $scope.hotelname, 
             "city": angular.fromJson($scope.city).name }}).
         then(function(response) {
             $scope.status = response.status;
             console.log($scope.status);
+            console.log($scope.base64encoded);
 
             // jeśli udało się wstawić to wstawiamy jeszcze hoteldetails
             $http({method: $scope.method,
-                url: "hotelDetails/", 
+                url: 'hotelDetails/',
                 headers: {'content-type': 'application/json'},
                 transformRequest :  [function (data, headers) {
                     return JSON.stringify(data);
                 }],
-                data: { "gallery": [$scope.base64encoded], 
-                "hotelName": $scope.hotelname, 
+                data: { "hotelName": $scope.hotelname,
                 "city": angular.fromJson($scope.city).name,
                 "description": $scope.hoteldescription, 
                 "email": $scope.email,
                 "address": $scope.address,
-                "number": $scope.telephone  }}).
+                "number": $scope.telephone,
+                "roomsCount": $scope.roomAmount,
+                "roomsOccupied": "0",
+                "gallery": $scope.base64encoded}}).
             then(function(response) {
                 $scope.status = response.status;
+                alert('Hotel został poprawnie dodany!');
+                history.go(-1);
                 console.log($scope.status);
             }, function(response){
+                alert('Hotel NIE został poprawnie dodany!');
                 $scope.data = response.data || "Request failed";
                 $scope.status = response.status;
                 console.log($scope.status);
             });
         }, function(response){
+            alert('Hotel NIE został poprawnie dodany!');
             $scope.data = response.data || "Request failed";
             $scope.status = response.status;
             console.log($scope.status);
@@ -167,17 +174,17 @@ app.controller('addHotelController', function($scope, $http,cfgService){
         var files = evt.target.files;
         var file = files[0];
 
-        if (files && file) {
+        for (i=0; i<files.length; i++) {
             var reader = new FileReader();
 
             reader.onload = function(readerEvt) {
                 var binaryString = readerEvt.target.result;
-                $scope.base64encoded = btoa(binaryString);
+                $scope.base64encoded.push(btoa(binaryString));
             };
 
-            reader.readAsBinaryString(file);
+            reader.readAsBinaryString(files[i]);
         }
-    }
+    };
     document.getElementById('photoToSend').addEventListener('change', handleFileSelect, false);
 });
 

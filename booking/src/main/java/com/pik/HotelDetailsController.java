@@ -20,12 +20,12 @@ public class HotelDetailsController {
     @Autowired
     ApplicationRepositoryUtil applicationRepositoryUtil;
 
-    @RequestMapping(value = "/hotelDetails")
+    @RequestMapping(value = "/hotelDetailsReservation")
     @ResponseBody
     public boolean check(@RequestParam Map<String, String> params)
     {
         String hotelName = params.get("name");
-        int rooms = (new Integer(params.get("rooms"))).intValue();
+        int rooms = (new Integer(params.get("roomsCount"))).intValue();
         HotelDetailsRepository hotelDetailsRepository = applicationRepositoryUtil.getHotelDetailsRepository();
         HotelDetails hotelDetails = hotelDetailsRepository.findByHotelName(hotelName);
         if(hotelDetails.getRoomsCount() - hotelDetails.getOccupiedRoomsCount() >= rooms)
