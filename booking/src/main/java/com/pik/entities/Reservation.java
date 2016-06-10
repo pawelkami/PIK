@@ -8,7 +8,23 @@ public class Reservation
     @Id
     private String id;
 
-    private Hotel hotel;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
+
+    private String hotelName;
 
     private Customer customer;
 
@@ -33,9 +49,11 @@ public class Reservation
         this.emberId = id;
     }
 
-    public Reservation(Hotel hotel, Customer customer, String roomAmount, String children, String adults, String beginDate, String endDate)
+    public Reservation() { }
+
+    public Reservation(String hotelName, Customer customer, String roomAmount, String children, String adults, String beginDate, String endDate)
     {;
-        this.hotel = hotel;
+        this.hotelName = hotelName;
         this.customer = customer;
         this.roomAmount = roomAmount;
         this.children = children;
@@ -68,7 +86,7 @@ public class Reservation
     public String toString()
     {
         return String.format("Reservation[id='%s', hotel='%s', customer first name='%s', last name='%s', begin data='%s', end date='%s']",
-                id, hotel.getName(), customer.getFirstName(), customer.getLastName(), beginDate, endDate);
+                id, this.hotelName, customer.getFirstName(), customer.getLastName(), beginDate, endDate);
     }
 
 }
