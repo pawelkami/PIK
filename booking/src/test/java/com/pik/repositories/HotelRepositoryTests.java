@@ -1,8 +1,11 @@
 package com.pik.repositories;
 
 import com.pik.SpringMongoConfiguration;
+import com.pik.entities.Customer;
 import com.pik.entities.Hotel;
 import com.pik.entities.HotelDetails;
+import com.pik.entities.Reservation;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -34,10 +37,18 @@ public class HotelRepositoryTests {
     @Autowired
     private HotelDetailsRepository detailsRepository;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
     @Before
     public void init() throws IOException {
         repository.deleteAll();
         detailsRepository.deleteAll();
+        customerRepository.deleteAll();
+        reservationRepository.deleteAll();
 
         File hotelDirectories = new File("src/test/java/com/pik/repositories/HDB");
         for(File directory: hotelDirectories.listFiles())
@@ -94,13 +105,60 @@ public class HotelRepositoryTests {
             detailsRepository.save(new HotelDetails(name, description,
                     city, address, number, email, gallery, roomsCount, occupiedRoomsCount));
         }
+        File customers = new File("src\\test\\java\\com\\pik\\repositories\\Customers");
+        for(File file: customers.listFiles())
+        {
+            String path = customers+"\\"+file.getName();
+            JSONParser parser = new JSONParser();
+            try {
+                JSONArray a = (JSONArray) parser.parse(new FileReader(path));
+                for (Object o: a)
+                {
+                    JSONObject jsonObj = (JSONObject) o;
+                    String firstName = (String) jsonObj.get("firstName");
+                    String lastName = (String) jsonObj.get("lastName");
+                    String telephoneNumber = (String) jsonObj.get("telephoneNumber");
+                    String email = (String) jsonObj.get("email");
+                    customerRepository.save(new Customer(firstName, lastName, telephoneNumber, email));
+                }
+            } catch (ParseException pe) {
+                System.out.println("position: " + pe.getPosition());
+                System.out.println(pe);
+                break;
+            }
+        }
+        File reservations = new File("src\\test\\java\\com\\pik\\repositories\\Reservations");
+        for(File file: reservations.listFiles())
+        {
+            String path = reservations+"\\"+file.getName();
+            JSONParser parser = new JSONParser();
+            try {
+                JSONArray a = (JSONArray) parser.parse(new FileReader(path));
+                for (Object o: a)
+                {
+                    JSONObject jsonObj = (JSONObject) o;
+                    String hotel = (String) jsonObj.get("hotel");
+                    System.out.println(hotel);
+                    String email = (String) jsonObj.get("email");
+                    String beginDate = (String) jsonObj.get("beginDate");
+                    String endDate = (String) jsonObj.get("endDate");
+                    Customer customer = customerRepository.findByEmail(email);
+                    Reservation reservation = new Reservation(hotel, customer, "1","2","2", beginDate, endDate);
+                    reservationRepository.save(reservation);
+                }
+            } catch (ParseException pe) {
+                System.out.println("position: " + pe.getPosition());
+                System.out.println(pe);
+                break;
+            }
+        }
     }
 
     @Test
     public void addNewHotelTest()
     {
         List<Hotel> hotels = repository.findAll();
-        //Assert.assertEquals(10, hotels.size());
+        Assert.assertEquals(10, hotels.size());
         for(Hotel h : hotels)
             System.out.println(h.toString());
     }

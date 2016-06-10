@@ -12,11 +12,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "hotelDetails", path = "hotelDetails")
 public interface HotelDetailsRepository extends MongoRepository<HotelDetails, String>
 {
-
-    /**
-     * Wyszukiwanie hotelu po nazwie.
-     * @param name nazwa szukanego hotelu
-     * @return obiekt HotelDetails pasującego do nazwy
-     */
     public HotelDetails findByHotelName(@Param(value = "hotelName")String hotelName);
 }
