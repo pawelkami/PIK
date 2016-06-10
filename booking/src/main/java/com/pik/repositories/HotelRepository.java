@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RepositoryRestResource(collectionResourceRel = "hotel", path = "hotel")
 public interface HotelRepository extends MongoRepository<Hotel, String> {
 
+    public Hotel findById(@Param(value="id") String id);
+
     /**
      * Wyszukiwanie hotelu po nazwie.
      * @param name nazwa szukanego hotelu

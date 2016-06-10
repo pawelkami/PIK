@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="list-group">
 			<a id="{{ x.name }}" class="list-group-item active" href="#/hoteldetails"
-			   ng-click="setHotelNameAndDisplayDetails(x.name)" ng-repeat="x in data">
+			   ng-click="setHotelNameAndDisplayDetails(x.id)" ng-repeat="x in data">
 				<h4 class="list-group-item-heading">{{ x.name }}</h4>
 				<p class="list-group-item-text">Miasto: {{ x.city }}</p>
 				<img src="data:image/png;base64,{{x.image}}" height="230" width="420">
