@@ -1,6 +1,7 @@
 package com.pik.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -29,6 +30,17 @@ public class HotelDetails
     private String hotelName;
 
     private List<byte[]> gallery;
+
+    @JsonProperty("id")
+    private String emberId;
+
+    public String getEmberId() {
+        return id;
+    }
+
+    public void setEmberId(String emberId) {
+        this.emberId = id;
+    }
     
     public List<byte[]> getGallery() {
         return gallery;

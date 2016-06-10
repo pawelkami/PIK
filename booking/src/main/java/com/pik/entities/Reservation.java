@@ -1,5 +1,6 @@
 package com.pik.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 
 public class Reservation
@@ -20,6 +21,17 @@ public class Reservation
     private String beginDate;
 
     private String endDate;
+
+    @JsonProperty("id")
+    private String emberId;
+
+    public String getEmberId() {
+        return id;
+    }
+
+    public void setEmberId(String emberId) {
+        this.emberId = id;
+    }
 
     public Reservation(Hotel hotel, Customer customer, String roomAmount, String children, String adults, String beginDate, String endDate)
     {;
