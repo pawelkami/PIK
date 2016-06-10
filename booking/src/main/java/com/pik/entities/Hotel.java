@@ -1,5 +1,6 @@
 package com.pik.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -12,6 +13,17 @@ public class Hotel {
     private String name;
     private String city;
     private byte[] image;
+
+    @JsonProperty("id")
+    private String emberId;
+
+    public String getEmberId() {
+        return id;
+    }
+
+    public void setEmberId(String emberId) {
+        this.emberId = id;
+    }
 
     public String getName() {
         return name;

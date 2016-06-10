@@ -1,6 +1,7 @@
 package com.pik.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 
 public class Customer
@@ -8,11 +9,23 @@ public class Customer
     @Id
     private String id;
 
+    @JsonProperty("id")
+    private String emberId;
+
+    private String firstName;
+
+    public String getEmberId() {
+        return id;
+    }
+
+    public void setEmberId(String emberId) {
+        this.emberId = id;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    private String firstName;
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
