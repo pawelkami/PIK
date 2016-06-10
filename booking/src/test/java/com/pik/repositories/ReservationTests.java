@@ -51,19 +51,20 @@ public class ReservationTests {
 
         for(Hotel hotel : hotels)
         {
+            String hotelName = hotel.getName();
             String firstName = firstNames.get(Math.abs(generator.nextInt() % firstNames.size()));
             String lastName = lastNames.get(Math.abs(generator.nextInt() % lastNames.size()));
             String telephoneNumber = telephoneNumbers.get(Math.abs(generator.nextInt() % telephoneNumbers.size()));
             String email = emails.get(Math.abs(generator.nextInt() % emails.size()));
             String roomAmount = Integer.toString(Math.abs(generator.nextInt() % 8 + 1));
-            String children = Integer.toString(Math.abs(generator.nextInt() % 4 + 1));
-            String adults = Integer.toString(Math.abs(generator.nextInt() % 4));
+            String children = Integer.toString(Math.abs(generator.nextInt() % 4));
+            String adults = Integer.toString(Math.abs(generator.nextInt() % 4) + 1);
             String beginDate = beginDates.get(Math.abs(generator.nextInt() % beginDates.size()));
             String endDate = endDates.get(Math.abs(generator.nextInt() % endDates.size()));
 
             Customer customer = new Customer(firstName, lastName, telephoneNumber, email);
             customerRepository.save(customer);
-            repository.save(new Reservation(hotel, customer, roomAmount, children, adults, beginDate, endDate));
+            repository.save(new Reservation(hotelName, customer, roomAmount, children, adults, beginDate, endDate));
         }
     }
 
