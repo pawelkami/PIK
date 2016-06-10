@@ -88,7 +88,7 @@ app.controller('resultController', function ($scope, $http, cfgService) {
 
     $scope.cityname = cfgService.getCity();
     console.log($scope.cityname);
-    $scope.completeUrl = 'hotel/search/findById?id=' + $scope.cityname;
+    $scope.completeUrl = 'hotel/search/findByCity?city=' + $scope.cityname;
     console.log($scope.completeUrl);
 
     $http({method: $scope.method, url: $scope.completeUrl}).then(function (response) {

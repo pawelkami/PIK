@@ -35,6 +35,4 @@ public interface HotelRepository extends MongoRepository<Hotel, String> {
     /**
      * Wyszukiwanie hotelu o okreslonej liczbie wolnych miejsc.
      */
-
-    public Hotel findById(@Param(value = "id") String id);
 }
