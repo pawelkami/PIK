@@ -105,10 +105,10 @@ public class HotelRepositoryTests {
             detailsRepository.save(new HotelDetails(name, description,
                     city, address, number, email, gallery, roomsCount, occupiedRoomsCount));
         }
-        File customers = new File("src\\test\\java\\com\\pik\\repositories\\Customers");
+        File customers = new File("src/test/java/com/pik/Customers");
         for(File file: customers.listFiles())
         {
-            String path = customers+"\\"+file.getName();
+            String path = customers+"/"+file.getName();
             JSONParser parser = new JSONParser();
             try {
                 JSONArray a = (JSONArray) parser.parse(new FileReader(path));
@@ -127,10 +127,10 @@ public class HotelRepositoryTests {
                 break;
             }
         }
-        File reservations = new File("src\\test\\java\\com\\pik\\repositories\\Reservations");
+        File reservations = new File("src/test/java/com/pik/Reservations");
         for(File file: reservations.listFiles())
         {
-            String path = reservations+"\\"+file.getName();
+            String path = reservations+"/"+file.getName();
             JSONParser parser = new JSONParser();
             try {
                 JSONArray a = (JSONArray) parser.parse(new FileReader(path));
