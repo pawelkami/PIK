@@ -67,10 +67,6 @@ public class HotelDetails
         this.description = description;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public String getCity() { return city; }
 
     public void setCity(String city) { this.city = city; }
@@ -86,10 +82,6 @@ public class HotelDetails
     public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public int getRoomsCount() { return roomsCount; }
 
